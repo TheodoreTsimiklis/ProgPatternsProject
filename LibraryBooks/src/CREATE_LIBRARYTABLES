@@ -1,0 +1,13 @@
+CREATE TABLE Books(SN VARCHAR(20) PRIMARY KEY, Title VARCHAR(100) NOT NULL, Author VARCHAR(100) NOT NULL,
+                       Publisher VARCHAR(100) NOT NULL, Quantity INT NOT NULL, AddedDate DATE NOT NULL);
+                       
+CREATE TABLE Students(StudentId INT PRIMARY KEY NOT NULL, Name VARCHAR(50) NOT NULL, Contact VARCHAR(100) NOT NULL);
+
+CREATE TABLE IssuedBooks(ID INT PRIMARY KEY NOT NULL, IssueDate DATE NOT NULL, ReturnDate DATE NOT NULL, 
+                            SN VARCHAR(20) NOT NULL,
+                            StudentId INT NOT NULL,
+                                CONSTRAINT FK_BOOKS
+                                FOREIGN KEY (SN) REFERENCES BOOKS(SN),
+                                CONSTRAINT FK_STUDENTS
+                                FOREIGN KEY (StudentId) REFERENCES STUDENTS(StudentId));
+                                
