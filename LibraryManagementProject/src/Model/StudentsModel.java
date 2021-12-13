@@ -5,12 +5,12 @@ package Model;
  * @author Theodore & David
  * 
  */
-public class Student {
+public class StudentsModel {
     private int studentId;
     private String name;
     private String contact;
 
-    public Student(int studentId, String name, String contact) {
+    public StudentsModel(int studentId, String name, String contact) {
         this.studentId = studentId;
         this.name = name;
         this.contact = contact;

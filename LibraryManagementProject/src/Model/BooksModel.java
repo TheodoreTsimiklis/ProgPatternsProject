@@ -6,7 +6,7 @@ import java.sql.Date;
  * @author Theodore & David
  * 
  */
-public class Book {
+public class BooksModel {
     private String serialNumber;
     private String title;
     private String author;
@@ -14,7 +14,7 @@ public class Book {
     private int quantity;
     private Date addedDate;
 
-    public Book(String serialNumber, String title, String author, String publisher,
+    public BooksModel(String serialNumber, String title, String author, String publisher,
             int quantity, Date addedDate) {
         this.serialNumber = serialNumber;
         this.title = title;
