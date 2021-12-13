@@ -41,13 +41,6 @@ public class StudentsModel {
         return contactNum;
     }
 
-    /**
-     * Allows user to search about their book using its title
-     *
-     * @param bookTitle title of the book
-     * @return returns a sorted list of the books based on its serial number
-     * @throws Exception exception if no book found
-     */
     public List<BooksModel> searchBookByTitle(String bookTitle) throws Exception {
         List<BooksModel> bookList = new ArrayList<>();
         Statement stmt = libraryCon.createStatement();
@@ -73,13 +66,6 @@ public class StudentsModel {
         return bookList;
     }
 
-    /**
-     * Allows user to search about their book using its publisher
-     *
-     * @param bookPublisher the books publisher
-     * @return returns a sorted list of the books based on its serial number
-     * @throws Exception
-     */
     public List<BooksModel> searchBookByPublisher(String bookPublisher)
             throws Exception {
         List<BooksModel> bookList = new ArrayList<>();
@@ -142,12 +128,12 @@ public class StudentsModel {
                 qty--;
                 issued++;
                 Statement stmt2 = libraryCon.createStatement();
-                String insertQuery = "INSERT INTO ISSUEDBOOKS (ID, SERIALNUM, "
+                String insert = "INSERT INTO ISSUEDBOOKS (ID, SERIALNUM, "
                         + "STUDENTNAME, CONTACTNUM, ISSUEDATE) "
                         + "VALUES (" + this.stId + ", '" + b.getSerialNum() + "', '"
                         + this.name + "', '" + this.contactNum + "', '"
                         + dtf.format(LocalDateTime.now()) + "');";
-                stmt2.execute(insertQuery);
+                stmt2.execute(insert);
             }
         }
         return true;

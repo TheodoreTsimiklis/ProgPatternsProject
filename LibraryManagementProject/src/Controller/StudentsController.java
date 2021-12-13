@@ -15,15 +15,6 @@ import Model.BooksModel;
 import DBHelper.LibraryDBConnection;
 import View.StudentsView;
 
-/**
- *
- * @author Theod
- */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 public class StudentsController {
 
     private StudentsModel model;
@@ -54,10 +45,10 @@ public class StudentsController {
 
         ResultSet rs = stmt.executeQuery("SELECT * FROM STUDENTS");
 
-        String insertQuery = "INSERT INTO STUDENTS (STID, NAME, CONTACTNUM)"
+        String insert = "INSERT INTO STUDENTS (STID, NAME, CONTACTNUM)"
                 + "VALUES (" + id + ", '" + name + "','" + contact + "');";
 
-        stmt1.executeUpdate(insertQuery);
+        stmt1.executeUpdate(insert);
 
         return student;
     }
