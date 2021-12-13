@@ -13,24 +13,24 @@ import java.sql.SQLException;
  *
  * @author Theod
  */
-public class ConnectionGenerator {
-
+public class BooksDBConnection {
     private static Connection con;
 
-    private static void createConnection() {
+    private static Connection createConnection() {
         try {
             Class.forName("org.sqlite.JDBC");
-            con = DriverManager.getConnection("jdbc:sqlite:Library.db");
+            con = DriverManager.getConnection("jdbc:sqlite:Books.db");
         } catch (ClassNotFoundException e) {
             System.out.println("SQL Driver not found [" + e + "]");
         } catch (SQLException e) {
             System.out.println("SQL Exception [" + e + "]");
         }
+        return con;
     }
 
     public static Connection getConnection() {
         if (con == null) {
-            createConnection();
+            con = createConnection();
         }
         return con;
     }
