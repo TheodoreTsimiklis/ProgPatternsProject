@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DBHelper;
+package Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,25 +13,32 @@ import java.sql.SQLException;
  *
  * @author Theod
  */
-public class BooksDBConnection {
-    private static Connection con;
+public class DatabaseConnection {
+
+    private static Connection connection;
 
     private static Connection createConnection() {
         try {
             Class.forName("org.sqlite.JDBC");
-            con = DriverManager.getConnection("jdbc:sqlite:Books.db");
-        } catch (ClassNotFoundException e) {
+            connection = DriverManager.getConnection("jdbc:sqlite:Library.db");
+        } 
+        
+        catch (ClassNotFoundException e) {
             System.out.println("SQL Driver not found [" + e + "]");
-        } catch (SQLException e) {
+        } 
+        
+        catch (SQLException e) {
             System.out.println("SQL Exception [" + e + "]");
         }
-        return con;
+        
+        return connection;
     }
 
     public static Connection getConnection() {
-        if (con == null) {
-            con = createConnection();
+        if (connection == null) {
+            connection = createConnection();
         }
-        return con;
+        
+        return connection;
     }
 }
